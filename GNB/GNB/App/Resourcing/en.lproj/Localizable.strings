@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  GNB
+
+  Created by Jorge Morán on 05/09/2020.
+  Copyright © 2020 Jorge Morán. All rights reserved.
+*/
+
+"accept" = "Aceptar";
+"cancel" = "Cancelar";
+"login.title" = "Inicia sesión para acceder a la app";
+"access" = "Acceder";
+"register" = "Registrarse";
+"user" = "Usuario";
+"user.placeholder" = "Escribe cualquier usuario para continuar";
+"password" = "Contraseña";
+"password.placeholder" = "Escribe cualquier contraseña para continuar";
+"password.remenber" = "Recordar contraseña";
+"deafult_error" = "Se ha producido un error";
