@@ -15,18 +15,18 @@ class HomeViewModel: ViewModel, ViewModelType {
     let router: HomeRouter
     fileprivate let getTradeRates: GetTradesRatesUseCase
     fileprivate let getTrades: GetTradesUseCase
+    fileprivate let trades: BehaviorRelay<[TradeElement]> = BehaviorRelay(value: [])
+    fileprivate let isHiddenTableView: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     
-    fileprivate var trades: [TradeElement]? {
-        didSet{
-            print(trades?.count)
-        }
-    }
     
     struct Input {
         let trigger: Observable<Void>
     }
     
-    struct Output { }
+    struct Output {
+        let isHiddenTableView: Observable<Bool>
+        let trades: Observable<[TradeElement]>
+    }
     
     // MARK: init & deinit
     init(router: HomeRouter,
@@ -35,27 +35,33 @@ class HomeViewModel: ViewModel, ViewModelType {
         self.getTradeRates = getTradeRates
         self.getTrades = getTrades
         super.init(router: router)
+        
+        trades.subscribe {[weak self] (trades) in
+            self?.isHiddenTableView.accept(trades.element?.count == 0)
+        }.disposed(by: disposeBag)
+        
     }
     
     // MARK: Binding
     func transform(input: Input) -> Output {
         input.trigger.subscribe { [weak self](_) in
-            guard let disposeBag = self?.disposeBag else { return }
-            
-            self?.getTradeRates().subscribe(onSuccess: { (tradesRates) in
+            guard let weakSelf = self else { return }
+            weakSelf.showLoading()
+            weakSelf.getTradeRates().subscribe(onSuccess: { (tradesRates) in
                 // TODO:
             }, onError: { (error) in
-                self?.process(error: error)
-            }).disposed(by: disposeBag)
+//                weakSelf.process(error: error)
+            }).disposed(by: weakSelf.disposeBag)
             
-            self?.getTrades().subscribe(onSuccess: { (trades) in
-                // TODO:
+            weakSelf.getTrades().subscribe(onSuccess: { (trades) in
+                weakSelf.trades.accept(trades)
+                weakSelf.hideLoading()
             }, onError: { (error) in
-                self?.process(error: error)
-            }).disposed(by: disposeBag)
+                weakSelf.process(error: error)
+            }).disposed(by: weakSelf.disposeBag)
             
         }.disposed(by: disposeBag)
-        return Output()
+        return Output(isHiddenTableView: isHiddenTableView.asObservable(), trades: trades.asObservable())
     }
     
     // MARK: Logic

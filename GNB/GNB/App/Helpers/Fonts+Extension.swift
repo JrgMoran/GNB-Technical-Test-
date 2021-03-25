@@ -20,6 +20,13 @@ extension UIFont {
     }
     
     /**
+    return Montserrat-Bold size 24
+    */
+    class var titleCell: UIFont? {
+        return UIFont(name: "Montserrat-Bold", size: 16)
+    }
+    
+    /**
     return Montserrat-Regular size 16
     */
     class var body: UIFont? {

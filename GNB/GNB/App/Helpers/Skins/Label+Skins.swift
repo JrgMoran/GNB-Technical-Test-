@@ -40,28 +40,12 @@ class LabelSkin {
         return LabelSkin(font: UIFont.mainTitle, textColor: UIColor.main, textAlignment: .center)
     }
     
+    class var titleCell: LabelSkin {
+        return LabelSkin(font: UIFont.titleCell, textColor: UIColor.black, textAlignment: .left)
+    }
+    
     class var body: LabelSkin {
         return LabelSkin(font: UIFont.body, textColor: UIColor.black, textAlignment: .left)
-    }
-    
-    class var date: LabelSkin {
-        return LabelSkin(font: UIFont.lightLitle, textColor: UIColor.lightGray, textAlignment: .left)
-    }
-    
-    class var positiveFee: LabelSkin {
-        return LabelSkin(font: UIFont.lightLitle, textColor: UIColor.green, textAlignment: .left)
-    }
-    
-    class var negativeFee: LabelSkin {
-        return LabelSkin(font: UIFont.lightLitle, textColor: UIColor.red, textAlignment: .left)
-    }
-    
-    class var positiveAmount: LabelSkin {
-        return LabelSkin(font: UIFont.body, textColor: UIColor.green, textAlignment: .left)
-    }
-    
-    class var negativeAmount: LabelSkin {
-        return LabelSkin(font: UIFont.body, textColor: UIColor.red, textAlignment: .left)
     }
     
 }

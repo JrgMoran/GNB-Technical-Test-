@@ -27,6 +27,8 @@
 		7D526C0125F93419008D7844 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D526BFD25F93419008D7844 /* SplashViewController.xib */; };
 		7D77C4ED25F38E3800F2A801 /* UserDataImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77C4EC25F38E3800F2A801 /* UserDataImpl.swift */; };
 		7D77C4F025F38EA800F2A801 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77C4EF25F38EA800F2A801 /* UserData.swift */; };
+		7D9B6546260CA1B100151DD6 /* TradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B6544260CA1B100151DD6 /* TradeCell.swift */; };
+		7D9B6547260CA1B100151DD6 /* TradeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D9B6545260CA1B100151DD6 /* TradeCell.xib */; };
 		7DA978C325069F4800BE95DB /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA978C225069F4800BE95DB /* UIImage+Extensions.swift */; };
 		7DA978C52506A0A600BE95DB /* TextField+Skins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA978C42506A0A600BE95DB /* TextField+Skins.swift */; };
 		7DB2C44C2505321000E52BEF /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB2C44B2505321000E52BEF /* DependencyInjector.swift */; };
@@ -118,6 +120,8 @@
 		7D526BFD25F93419008D7844 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		7D77C4EC25F38E3800F2A801 /* UserDataImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataImpl.swift; sourceTree = "<group>"; };
 		7D77C4EF25F38EA800F2A801 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		7D9B6544260CA1B100151DD6 /* TradeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeCell.swift; sourceTree = "<group>"; };
+		7D9B6545260CA1B100151DD6 /* TradeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TradeCell.xib; sourceTree = "<group>"; };
 		7DA978C225069F4800BE95DB /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		7DA978C42506A0A600BE95DB /* TextField+Skins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Skins.swift"; sourceTree = "<group>"; };
 		7DB2C44B2505321000E52BEF /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 		7D526B6825F8E426008D7844 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				7D9B6543260CA15800151DD6 /* Cell */,
 				7DF0EAE225FA7C6C0006B72A /* HomeRouter.swift */,
 				7DF0EAE325FA7C6C0006B72A /* HomeViewController.swift */,
 				7DF0EAE425FA7C6C0006B72A /* HomeViewModel.swift */,
@@ -280,6 +285,15 @@
 			children = (
 			);
 			path = BBDD;
+			sourceTree = "<group>";
+		};
+		7D9B6543260CA15800151DD6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7D9B6544260CA1B100151DD6 /* TradeCell.swift */,
+				7D9B6545260CA1B100151DD6 /* TradeCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		7DB2C44F25067CCA00E52BEF /* Fonts */ = {
@@ -641,6 +655,7 @@
 				7D526C0125F93419008D7844 /* SplashViewController.xib in Resources */,
 				7DB2C46C25067CF300E52BEF /* Montserrat-Black.ttf in Resources */,
 				7DB848932503B4FA00C9D6B5 /* Assets.xcassets in Resources */,
+				7D9B6547260CA1B100151DD6 /* TradeCell.xib in Resources */,
 				7DC1E49B25077B4E00405FB2 /* CheckBox.xib in Resources */,
 				7DB2C46D25067CF300E52BEF /* Montserrat-ExtraLight.ttf in Resources */,
 				7DF0EAE925FA7C6C0006B72A /* HomeViewController.xib in Resources */,
@@ -717,6 +732,7 @@
 			files = (
 				7D77C4F025F38EA800F2A801 /* UserData.swift in Sources */,
 				7D77C4ED25F38E3800F2A801 /* UserDataImpl.swift in Sources */,
+				7D9B6546260CA1B100151DD6 /* TradeCell.swift in Sources */,
 				7DC85726260B488D0035F4FD /* TransactionRequest.swift in Sources */,
 				7DC85723260B46F70035F4FD /* TradeRatesRequest.swift in Sources */,
 				7DB2C44E2505380600E52BEF /* Observable+Extension.swift in Sources */,

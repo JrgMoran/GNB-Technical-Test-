@@ -43,6 +43,7 @@ class LoginViewModel: ViewModel, ViewModelType {
                 weakSelf.loginUseCase(user: weakSelf.user.value,
                                       pass: weakSelf.password.value,
                                       saveUser: weakSelf.rememberPassword.value).subscribe(onSuccess: { session in
+                                        weakSelf.hideLoading()
                                         weakSelf.router.toMovements()
                                               }) { (error) in
                                         weakSelf.process(error: error)
