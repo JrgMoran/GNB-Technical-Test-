@@ -27,6 +27,7 @@ class HomeViewController: ViewController, UITableViewDelegate {
     // MARK: View lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        disposeBag = DisposeBag()
         bindViewModel()
     }
     
@@ -43,7 +44,7 @@ class HomeViewController: ViewController, UITableViewDelegate {
     // MARK: Binding
     private func bindViewModel() {
         assert(viewModel != nil)
-        let input = HomeViewModel.Input(trigger: self.rx.viewDidAppear)
+        let input = HomeViewModel.Input(trigger: self.rx.viewDidAppear, tradeTap: tableView.rx.modelSelected(TradeElement.self).asObservable())
         let output = viewModel.transform(input: input)
         
         output.trades.bind(to: tableView.rx.items(cellIdentifier: TradeCell.identifier, cellType: TradeCell.self)){ (row,item,cell) in

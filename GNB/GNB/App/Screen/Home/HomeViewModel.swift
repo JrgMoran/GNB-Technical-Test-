@@ -21,6 +21,7 @@ class HomeViewModel: ViewModel, ViewModelType {
     
     struct Input {
         let trigger: Observable<Void>
+        let tradeTap: Observable<TradeElement>
     }
     
     struct Output {
@@ -61,6 +62,11 @@ class HomeViewModel: ViewModel, ViewModelType {
             }).disposed(by: weakSelf.disposeBag)
             
         }.disposed(by: disposeBag)
+        
+        input.tradeTap.subscribe {[weak self] (tradeElement) in
+            // TODO: router
+        }.disposed(by: disposeBag)
+        
         return Output(isHiddenTableView: isHiddenTableView.asObservable(), trades: trades.asObservable())
     }
     
