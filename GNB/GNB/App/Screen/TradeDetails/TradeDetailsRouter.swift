@@ -10,11 +10,13 @@ import Foundation
 class TradeDetailsRouter: Router {
     
     @discardableResult
-    override init() {
+    init(trades: [TradeElement], tradeSelected: TradeElement) {
         super.init()
         let viewController = TradeDetailsViewController()
         viewController.viewModel = TradeDetailsViewModel(router: self,
-                                                         getTradeRates: injector.getTradesRatesUseCase)
+                                                         getTradeRates: injector.getTradesRatesUseCase,
+                                                         trades: trades,
+                                                         tradeSelected: tradeSelected)
         
         navigate(to: viewController, mode: .push)
     }

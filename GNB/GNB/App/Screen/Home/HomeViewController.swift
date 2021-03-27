@@ -44,7 +44,7 @@ class HomeViewController: ViewController, UITableViewDelegate {
     // MARK: Binding
     private func bindViewModel() {
         assert(viewModel != nil)
-        let input = HomeViewModel.Input(trigger: self.rx.viewDidAppear, tradeTap: tableView.rx.modelSelected(TradeElement.self).asObservable())
+        let input = HomeViewModel.Input(trigger: self.rx.viewDidAppear, tradeTap: tableView.rx.itemSelected.map({ $0.row }).asObservable())
         let output = viewModel.transform(input: input)
         
         output.trades.bind(to: tableView.rx.items(cellIdentifier: TradeCell.identifier, cellType: TradeCell.self)){ (row,item,cell) in

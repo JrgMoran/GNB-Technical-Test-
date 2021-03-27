@@ -15,6 +15,10 @@ class TradeDetailsViewModel: ViewModel, ViewModelType {
     let router: TradeDetailsRouter
     fileprivate let getTradeRates: GetTradesRatesUseCase
     
+    fileprivate let trades: [TradeElement]
+    fileprivate var sameTrades: [TradeElement] = []
+    fileprivate let tradeSelected: TradeElement
+    
     struct Input {
         let trigger: Observable<Void>
     }
@@ -22,11 +26,14 @@ class TradeDetailsViewModel: ViewModel, ViewModelType {
     struct Output { }
     
     // MARK: init & deinit
-    init(router: TradeDetailsRouter,
-         getTradeRates: GetTradesRatesUseCase) {
+    init(router: TradeDetailsRouter, getTradeRates: GetTradesRatesUseCase,
+         trades: [TradeElement], tradeSelected: TradeElement) {
         self.router = router
         self.getTradeRates = getTradeRates
+        self.trades = trades
+        self.tradeSelected = tradeSelected
         super.init(router: router)
+        getSameTrades()
     }
     
     // MARK: Binding
@@ -47,5 +54,8 @@ class TradeDetailsViewModel: ViewModel, ViewModelType {
     }
     
     // MARK: Logic
+    private func getSameTrades() {
+        sameTrades = trades.filter({ $0.sku == tradeSelected.sku })
+    }
 }
 

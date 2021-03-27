@@ -17,10 +17,9 @@ class HomeViewModel: ViewModel, ViewModelType {
     fileprivate let trades: BehaviorRelay<[TradeElement]> = BehaviorRelay(value: [])
     fileprivate let isHiddenTableView: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     
-    
     struct Input {
         let trigger: Observable<Void>
-        let tradeTap: Observable<TradeElement>
+        let tradeTap: Observable<Int>
     }
     
     struct Output {
@@ -55,8 +54,13 @@ class HomeViewModel: ViewModel, ViewModelType {
             
         }.disposed(by: disposeBag)
         
-        input.tradeTap.subscribe {[weak self] (tradeElement) in
-            self?.router.navigateToTrade()
+        input.tradeTap.subscribe {[weak self] (index) in
+            if let trades = self?.trades.value,
+               let index = index.element,
+               trades.count > index {
+                self?.router.navigateToTrade(trades: trades, tradeSelected: trades[index])
+            }
+            
         }.disposed(by: disposeBag)
         
         return Output(isHiddenTableView: isHiddenTableView.asObservable(), trades: trades.asObservable())

@@ -18,8 +18,8 @@ class HomeRouter: Router {
         navigate(to: viewController, mode: .new)
     }
     
-    func navigateToTrade(){
-        TradeDetailsRouter()
+    func navigateToTrade(trades: [TradeElement], tradeSelected: TradeElement){
+        TradeDetailsRouter(trades: trades, tradeSelected: tradeSelected)
     }
 }
 
