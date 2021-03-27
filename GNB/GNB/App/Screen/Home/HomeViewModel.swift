@@ -13,7 +13,6 @@ import RxCocoa
 class HomeViewModel: ViewModel, ViewModelType {
     
     let router: HomeRouter
-    fileprivate let getTradeRates: GetTradesRatesUseCase
     fileprivate let getTrades: GetTradesUseCase
     fileprivate let trades: BehaviorRelay<[TradeElement]> = BehaviorRelay(value: [])
     fileprivate let isHiddenTableView: BehaviorRelay<Bool> = BehaviorRelay(value: false)
@@ -30,10 +29,8 @@ class HomeViewModel: ViewModel, ViewModelType {
     }
     
     // MARK: init & deinit
-    init(router: HomeRouter,
-         getTradeRates: GetTradesRatesUseCase, getTrades: GetTradesUseCase) {
+    init(router: HomeRouter, getTrades: GetTradesUseCase) {
         self.router = router
-        self.getTradeRates = getTradeRates
         self.getTrades = getTrades
         super.init(router: router)
         
@@ -48,11 +45,6 @@ class HomeViewModel: ViewModel, ViewModelType {
         input.trigger.subscribe { [weak self](_) in
             guard let weakSelf = self else { return }
             weakSelf.showLoading()
-            weakSelf.getTradeRates().subscribe(onSuccess: { (tradesRates) in
-                // TODO:
-            }, onError: { (error) in
-//                weakSelf.process(error: error)
-            }).disposed(by: weakSelf.disposeBag)
             
             weakSelf.getTrades().subscribe(onSuccess: { (trades) in
                 weakSelf.trades.accept(trades)
@@ -64,7 +56,7 @@ class HomeViewModel: ViewModel, ViewModelType {
         }.disposed(by: disposeBag)
         
         input.tradeTap.subscribe {[weak self] (tradeElement) in
-            // TODO: router
+            self?.router.navigateToTrade()
         }.disposed(by: disposeBag)
         
         return Output(isHiddenTableView: isHiddenTableView.asObservable(), trades: trades.asObservable())

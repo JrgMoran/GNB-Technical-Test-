@@ -64,7 +64,7 @@ class Router {
     }
     
     private func push(viewController: UIViewController, animated: Bool = true) {
-        if let navController = rootViewController?.navigationController {
+        if let navController = rootViewController as? UINavigationController ?? rootViewController?.navigationController {
             navController.pushViewController(viewController, animated: animated)
         
         } else {
