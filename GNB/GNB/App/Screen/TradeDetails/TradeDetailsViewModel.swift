@@ -18,6 +18,11 @@ class TradeDetailsViewModel: ViewModel, ViewModelType {
     fileprivate let trades: [TradeElement]
     fileprivate var sameTrades: [TradeElement] = []
     fileprivate let tradeSelected: TradeElement
+    fileprivate var tradesRates: [TradeRate] = [] {
+        didSet {
+            self.tradesRates.completeTradesRates()
+        }
+    }
     
     struct Input {
         let trigger: Observable<Void>
@@ -42,7 +47,7 @@ class TradeDetailsViewModel: ViewModel, ViewModelType {
             guard let weakSelf = self else { return }
             weakSelf.showLoading()
             weakSelf.getTradeRates().subscribe(onSuccess: { (tradesRates) in
-                // TODO:
+                weakSelf.tradesRates = tradesRates
                 weakSelf.hideLoading()
             }, onError: { (error) in
                 weakSelf.process(error: error)
