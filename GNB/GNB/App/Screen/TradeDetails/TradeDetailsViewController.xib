@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="amountLabel" destination="6Pi-Q5-mE8" id="3Hc-iP-UdV"/>
                 <outlet property="skuLabel" destination="Rdc-WU-n29" id="Fvn-aT-S0f"/>
+                <outlet property="tableView" destination="bRZ-vm-KgC" id="MWY-yu-vxp"/>
                 <outlet property="totalLabel" destination="gru-Ej-aqf" id="lA0-3E-KAm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

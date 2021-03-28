@@ -92,6 +92,8 @@
 		7DC85729260B4A1F0035F4FD /* GetTradesRatesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC85728260B4A1F0035F4FD /* GetTradesRatesUseCase.swift */; };
 		7DC8572C260B4A370035F4FD /* GetTradesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC8572B260B4A370035F4FD /* GetTradesUseCase.swift */; };
 		7DC8BE3F250B50E80089191C /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC8BE3E250B50E80089191C /* Environment.swift */; };
+		7DDC2BFD261109330098A287 /* TradeConversionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDC2BFB261109330098A287 /* TradeConversionCell.swift */; };
+		7DDC2BFE261109330098A287 /* TradeConversionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DDC2BFC261109330098A287 /* TradeConversionCell.xib */; };
 		7DF0EAE625FA7C6C0006B72A /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF0EAE225FA7C6C0006B72A /* HomeRouter.swift */; };
 		7DF0EAE725FA7C6C0006B72A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF0EAE325FA7C6C0006B72A /* HomeViewController.swift */; };
 		7DF0EAE825FA7C6C0006B72A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF0EAE425FA7C6C0006B72A /* HomeViewModel.swift */; };
@@ -196,6 +198,8 @@
 		7DC85728260B4A1F0035F4FD /* GetTradesRatesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTradesRatesUseCase.swift; sourceTree = "<group>"; };
 		7DC8572B260B4A370035F4FD /* GetTradesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTradesUseCase.swift; sourceTree = "<group>"; };
 		7DC8BE3E250B50E80089191C /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		7DDC2BFB261109330098A287 /* TradeConversionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeConversionCell.swift; sourceTree = "<group>"; };
+		7DDC2BFC261109330098A287 /* TradeConversionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TradeConversionCell.xib; sourceTree = "<group>"; };
 		7DF0EAE225FA7C6C0006B72A /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		7DF0EAE325FA7C6C0006B72A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7DF0EAE425FA7C6C0006B72A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -313,6 +317,7 @@
 		7D9B65AD260D337300151DD6 /* TradeDetails */ = {
 			isa = PBXGroup;
 			children = (
+				7DDC2BFA2611090B0098A287 /* Cell */,
 				7D9B65AE260D33AE00151DD6 /* TradeDetailsRouter.swift */,
 				7D9B65AF260D33AE00151DD6 /* TradeDetailsViewController.swift */,
 				7D9B65B0260D33AE00151DD6 /* TradeDetailsViewModel.swift */,
@@ -572,6 +577,15 @@
 			path = CheckBox;
 			sourceTree = "<group>";
 		};
+		7DDC2BFA2611090B0098A287 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7DDC2BFB261109330098A287 /* TradeConversionCell.swift */,
+				7DDC2BFC261109330098A287 /* TradeConversionCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		7DF0EAEB25FA80770006B72A /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -666,6 +680,7 @@
 			files = (
 				7DB2C47325067CF300E52BEF /* Montserrat-LightItalic.ttf in Resources */,
 				7D9B65B5260D33AE00151DD6 /* TradeDetailsViewController.xib in Resources */,
+				7DDC2BFE261109330098A287 /* TradeConversionCell.xib in Resources */,
 				7DB2C46925067CF300E52BEF /* Montserrat-Light.ttf in Resources */,
 				7DB2C46325067CF300E52BEF /* Montserrat-Regular.ttf in Resources */,
 				7DB2C46525067CF300E52BEF /* Montserrat-ExtraBoldItalic.ttf in Resources */,
@@ -769,6 +784,7 @@
 				7DB2C44E2505380600E52BEF /* Observable+Extension.swift in Sources */,
 				7DF0EAED25FA80870006B72A /* AppRequest.swift in Sources */,
 				7DB848C92503ECA200C9D6B5 /* ViewModel.swift in Sources */,
+				7DDC2BFD261109330098A287 /* TradeConversionCell.swift in Sources */,
 				7D2A2F112504CAD500E058CE /* KeyboardScrollView.swift in Sources */,
 				7DF0EAE825FA7C6C0006B72A /* HomeViewModel.swift in Sources */,
 				7DF0EAE725FA7C6C0006B72A /* HomeViewController.swift in Sources */,

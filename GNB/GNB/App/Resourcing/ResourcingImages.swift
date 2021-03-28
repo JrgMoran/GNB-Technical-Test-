@@ -12,6 +12,7 @@ import UIKit
 public class RImages {
 
 	public let checkBoxOn: UIImage? = UIImage(named: "checkBoxOn")
+	public let arrow: UIImage? = UIImage(named: "arrow")
 	public let ico_eye_close: UIImage? = UIImage(named: "ico_eye_close")
 	public let ico_eye_open: UIImage? = UIImage(named: "ico_eye_open")
 	public let close: UIImage? = UIImage(named: "close")

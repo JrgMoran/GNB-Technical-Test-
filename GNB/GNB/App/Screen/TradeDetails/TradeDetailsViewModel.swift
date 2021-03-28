@@ -32,11 +32,13 @@ class TradeDetailsViewModel: ViewModel, ViewModelType {
                 }
             }
             allSameTrades.accept(superSameTrades)
+            tradesInAllCurrencies.accept(tradesRates.allCurrencies(of: tradeSelected)?.map({$0.formatedValue}).filter({$0 != nil}) as! [String])
         }
     }
     
     
     fileprivate lazy var allSameTrades: BehaviorRelay<TradeElement> =  BehaviorRelay.init(value: tradeSelected)
+    fileprivate lazy var tradesInAllCurrencies: BehaviorRelay<[String]> =  BehaviorRelay.init(value: [])
     
     struct Input {
         let trigger: Observable<Void>
@@ -76,22 +78,18 @@ class TradeDetailsViewModel: ViewModel, ViewModelType {
         let totalTradeEuro = allSameTrades.asObservable().map {[weak self] (trade) -> String in
             if let weakSelf = self {
                 let eurTotal = weakSelf.tradesRates.tradeCurrency("EUR", of: weakSelf.allSameTrades.value)
-                return eurTotal.formatedValue ?? ""
+                return "\(R.text.totalInEur) \(eurTotal.formatedValue ?? "")"
             }
             return ""
         }
         
         return Output(sku: Observable.just(tradeSelected.sku),
-                      amount: Observable.just(tradeSelected.amount),
+                      amount: Observable.just(Amount(from: tradeSelected).formatedValue ?? ""),
                       totalTradeEuro: totalTradeEuro,
-                      tradesInAllCurrencies: Observable.just(tradesInAllCurrencies()))
+                      tradesInAllCurrencies: tradesInAllCurrencies.asObservable())
     }
     
     // MARK: Logic
-    
-    private func tradesInAllCurrencies() -> [String] {
-//        return tradesRates.allCurrencies(of: tradeSelected)?.map({$0.formatedValue}).filter({$0 != nil}) as! [String]
-        return []
-    }
+
 }
 

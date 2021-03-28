@@ -9,13 +9,19 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class TradeDetailsViewController: ViewController {
+class TradeDetailsViewController: ViewController, UITableViewDelegate {
     
     // MARK: IBOutlet
     @IBOutlet weak var skuLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     
+    @IBOutlet weak var tableView: UITableView!{
+        didSet {
+            tableView.register(UINib(nibName: TradeConversionCell.identifier, bundle: nil), forCellReuseIdentifier: TradeConversionCell.identifier)
+            tableView.rx.setDelegate(self).disposed(by: disposeBag)
+        }
+    }
     // MARK: Injections
     var viewModel: TradeDetailsViewModel!
     
@@ -48,6 +54,9 @@ class TradeDetailsViewController: ViewController {
         output.sku.bind(to: skuLabel.rx.text).disposed(by: disposeBag)
         output.amount.bind(to: amountLabel.rx.text).disposed(by: disposeBag)
         output.totalTradeEuro.bind(to: totalLabel.rx.text).disposed(by: disposeBag)
+        output.tradesInAllCurrencies.bind(to: tableView.rx.items(cellIdentifier: TradeConversionCell.identifier, cellType: TradeConversionCell.self)){ (row,item,cell) in
+                    cell.textAmount = item
+        }.disposed(by: disposeBag)
         
     }
 
