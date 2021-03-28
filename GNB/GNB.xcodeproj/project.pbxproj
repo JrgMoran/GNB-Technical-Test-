@@ -35,6 +35,7 @@
 		7D9B65B5260D33AE00151DD6 /* TradeDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D9B65B1260D33AE00151DD6 /* TradeDetailsViewController.xib */; };
 		7D9B65B8260F86BA00151DD6 /* TradeRate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B65B7260F86BA00151DD6 /* TradeRate+Extensions.swift */; };
 		7D9B65C02610A71C00151DD6 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B65BF2610A71C00151DD6 /* Amount.swift */; };
+		7D9B65C72610FE2800151DD6 /* Locale+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B65C62610FE2800151DD6 /* Locale+Extensions.swift */; };
 		7DA978C325069F4800BE95DB /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA978C225069F4800BE95DB /* UIImage+Extensions.swift */; };
 		7DA978C52506A0A600BE95DB /* TextField+Skins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA978C42506A0A600BE95DB /* TextField+Skins.swift */; };
 		7DB2C44C2505321000E52BEF /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB2C44B2505321000E52BEF /* DependencyInjector.swift */; };
@@ -134,6 +135,7 @@
 		7D9B65B1260D33AE00151DD6 /* TradeDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TradeDetailsViewController.xib; sourceTree = "<group>"; };
 		7D9B65B7260F86BA00151DD6 /* TradeRate+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TradeRate+Extensions.swift"; sourceTree = "<group>"; };
 		7D9B65BF2610A71C00151DD6 /* Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
+		7D9B65C62610FE2800151DD6 /* Locale+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+Extensions.swift"; sourceTree = "<group>"; };
 		7DA978C225069F4800BE95DB /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		7DA978C42506A0A600BE95DB /* TextField+Skins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Skins.swift"; sourceTree = "<group>"; };
 		7DB2C44B2505321000E52BEF /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 				7DC74604250D30140018CBE0 /* Date+Extensions.swift */,
 				7DC74606250D35640018CBE0 /* Double+Extensions.swift */,
 				7D9B65B7260F86BA00151DD6 /* TradeRate+Extensions.swift */,
+				7D9B65C62610FE2800151DD6 /* Locale+Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -808,6 +811,7 @@
 				7D0227C425F1407400943686 /* SessionRepository.swift in Sources */,
 				7DB8488C2503B4F800C9D6B5 /* SceneDelegate.swift in Sources */,
 				7DB848C22503EC4500C9D6B5 /* LoginViewModel.swift in Sources */,
+				7D9B65C72610FE2800151DD6 /* Locale+Extensions.swift in Sources */,
 				7DA978C325069F4800BE95DB /* UIImage+Extensions.swift in Sources */,
 				7DC74605250D30140018CBE0 /* Date+Extensions.swift in Sources */,
 				7DB2C47D250682F700E52BEF /* Label+Skins.swift in Sources */,

@@ -22,9 +22,6 @@ struct Amount {
     }
     
     var formatedValue: String? {
-        if let value = value {
-            return "\(value) \(currency)"
-        }
-        return nil
+        return value?.formatAsCurrency(currencyCode: currency)
     }
 }

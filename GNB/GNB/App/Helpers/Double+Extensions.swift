@@ -12,11 +12,14 @@ extension Double {
         return Double(floor(pow(10.0, Double(places)) * self)/pow(10.0, Double(places)))
     }
     
-    func formatAsCurrency(currencyCode: String = Locale.current.currencyCode ?? "EUR") -> String? {
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.numberStyle = .currency
-        currencyFormatter.currencyCode = currencyCode
-        currencyFormatter.maximumFractionDigits = floor(self) == self ? 0 : 2
-        return currencyFormatter.string(from: NSNumber(value: self))
+    func formatAsCurrency(currencyCode: String) -> String? {
+        if let locale = Locale.from(currencyCode: currencyCode) {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            formatter.locale = Locale.current
+            formatter.currencySymbol = locale.currencySymbol
+            return formatter.string(from: self as NSNumber)
+        }
+        return nil
     }
 }
