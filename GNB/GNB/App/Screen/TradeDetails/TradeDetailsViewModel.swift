@@ -16,19 +16,26 @@ class TradeDetailsViewModel: ViewModel, ViewModelType {
     fileprivate let getTradeRates: GetTradesRatesUseCase
     
     fileprivate let trades: [TradeElement]
-    fileprivate var sameTrades: [TradeElement] = []
     fileprivate let tradeSelected: TradeElement
+    
     fileprivate var tradesRates: [TradeRate] = [] {
         didSet {
             self.tradesRates.completeTradesRates()
         }
     }
     
+    
+    fileprivate var sameTrades: [TradeElement] = []
+    
     struct Input {
         let trigger: Observable<Void>
     }
     
-    struct Output { }
+    struct Output {
+        let sku: Observable<String>
+        let amount: Observable<String>
+        let totalTradeEuro: Observable<String>
+    }
     
     // MARK: init & deinit
     init(router: TradeDetailsRouter, getTradeRates: GetTradesRatesUseCase,
@@ -55,7 +62,9 @@ class TradeDetailsViewModel: ViewModel, ViewModelType {
             
         }.disposed(by: disposeBag)
         
-        return Output()
+        return Output(sku: Observable.just(tradeSelected.sku),
+                      amount: Observable.just(tradeSelected.amount),
+                      totalTradeEuro: Observable.just("TODO"))
     }
     
     // MARK: Logic

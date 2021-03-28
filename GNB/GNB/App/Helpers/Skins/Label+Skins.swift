@@ -40,7 +40,7 @@ class LabelSkin {
         return LabelSkin(font: UIFont.mainTitle, textColor: UIColor.main, textAlignment: .center)
     }
     
-    class var titleCell: LabelSkin {
+    class var title: LabelSkin {
         return LabelSkin(font: UIFont.titleCell, textColor: UIColor.black, textAlignment: .left)
     }
     

@@ -102,6 +102,5 @@ extension TradeRate: Equatable {
         return lhs.from == rhs.from &&
             lhs.to == rhs.to &&
             lhs.rate == rhs.rate
-        
     }
 }

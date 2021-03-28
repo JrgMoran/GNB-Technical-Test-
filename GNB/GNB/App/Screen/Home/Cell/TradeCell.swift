@@ -18,7 +18,7 @@ class TradeCell: UITableViewCell {
     @IBOutlet weak var body: UILabel!
     var trade: TradeElement? {
         didSet {
-            title.text(trade?.sku, withSkin: LabelSkin.titleCell)
+            title.text(trade?.sku, withSkin: LabelSkin.title)
             body.text(trade?.amount, withSkin: LabelSkin.body)
         }
     }

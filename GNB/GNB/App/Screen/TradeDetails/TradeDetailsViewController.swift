@@ -12,6 +12,9 @@ import RxCocoa
 class TradeDetailsViewController: ViewController {
     
     // MARK: IBOutlet
+    @IBOutlet weak var skuLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
     
     // MARK: Injections
     var viewModel: TradeDetailsViewModel!
@@ -31,14 +34,21 @@ class TradeDetailsViewController: ViewController {
 
     // MARK: Configure View
     private func configureView(){
-        
+        skuLabel.applySkin(LabelSkin.title)
+        amountLabel.applySkin(LabelSkin.body)
+        totalLabel.applySkin(LabelSkin.body)
     }
     
     // MARK: Binding
     private func bindViewModel() {
         assert(viewModel != nil)
         let input = TradeDetailsViewModel.Input(trigger: self.rx.viewWillAppear)
-        let _ = viewModel.transform(input: input)
+        let output = viewModel.transform(input: input)
+        
+        output.sku.bind(to: skuLabel.rx.text).disposed(by: disposeBag)
+        output.amount.bind(to: amountLabel.rx.text).disposed(by: disposeBag)
+        output.totalTradeEuro.bind(to: totalLabel.rx.text).disposed(by: disposeBag)
+        
     }
 
 }
