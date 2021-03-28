@@ -34,6 +34,7 @@
 		7D9B65B4260D33AE00151DD6 /* TradeDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B65B0260D33AE00151DD6 /* TradeDetailsViewModel.swift */; };
 		7D9B65B5260D33AE00151DD6 /* TradeDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D9B65B1260D33AE00151DD6 /* TradeDetailsViewController.xib */; };
 		7D9B65B8260F86BA00151DD6 /* TradeRate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B65B7260F86BA00151DD6 /* TradeRate+Extensions.swift */; };
+		7D9B65C02610A71C00151DD6 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B65BF2610A71C00151DD6 /* Amount.swift */; };
 		7DA978C325069F4800BE95DB /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA978C225069F4800BE95DB /* UIImage+Extensions.swift */; };
 		7DA978C52506A0A600BE95DB /* TextField+Skins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA978C42506A0A600BE95DB /* TextField+Skins.swift */; };
 		7DB2C44C2505321000E52BEF /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB2C44B2505321000E52BEF /* DependencyInjector.swift */; };
@@ -132,6 +133,7 @@
 		7D9B65B0260D33AE00151DD6 /* TradeDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeDetailsViewModel.swift; sourceTree = "<group>"; };
 		7D9B65B1260D33AE00151DD6 /* TradeDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TradeDetailsViewController.xib; sourceTree = "<group>"; };
 		7D9B65B7260F86BA00151DD6 /* TradeRate+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TradeRate+Extensions.swift"; sourceTree = "<group>"; };
+		7D9B65BF2610A71C00151DD6 /* Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
 		7DA978C225069F4800BE95DB /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		7DA978C42506A0A600BE95DB /* TextField+Skins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Skins.swift"; sourceTree = "<group>"; };
 		7DB2C44B2505321000E52BEF /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
@@ -533,6 +535,7 @@
 				7D2A2F19250504EA00E058CE /* Session.swift */,
 				7DC85713260B433C0035F4FD /* TradeRate.swift */,
 				7DC85717260B43DE0035F4FD /* TradeElement.swift */,
+				7D9B65BF2610A71C00151DD6 /* Amount.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -794,6 +797,7 @@
 				7D2A2F182505044B00E058CE /* User.swift in Sources */,
 				7DC8572C260B4A370035F4FD /* GetTradesUseCase.swift in Sources */,
 				7D9B65B4260D33AE00151DD6 /* TradeDetailsViewModel.swift in Sources */,
+				7D9B65C02610A71C00151DD6 /* Amount.swift in Sources */,
 				7DB848A92503BACA00C9D6B5 /* ResourcingImages.swift in Sources */,
 				7DB2C47B25067F4100E52BEF /* Button+Skins.swift in Sources */,
 				7DB848CC2503ECA200C9D6B5 /* ViewController.swift in Sources */,

@@ -37,6 +37,28 @@ extension Array where Element == TradeRate {
         return allCurrencies
     }
     
+    func allCurrencies(of trade: TradeElement) -> [Amount]?{
+        if allCurrencies.contains(where: {$0 == trade.currency}) {
+            return allCurrencies.filter({$0 != trade.currency }).map { (currency) -> Amount in
+                return tradeCurrency(currency, of: trade)
+            }
+        } else {
+            return nil
+        }
+    }
+    
+    func tradeCurrency(_ currency: String, of trade: TradeElement) -> Amount {
+        if trade.currency == currency {
+            return Amount(from: trade)
+        } else if let tradeRate = find(from: trade.currency, to: currency),
+           let rate = Double(tradeRate.rate),
+           let tradeAmount = Double(trade.amount){
+            return Amount(value: tradeAmount * rate, currency: tradeRate.to)
+        }
+        
+        return Amount(value: nil, currency: currency)
+    }
+    
     private func exist(from fromCurrency: String, to toCurrency: String) -> Bool{
         return self.filter({ $0.from == fromCurrency && $0.to == toCurrency }).count > 0
     }

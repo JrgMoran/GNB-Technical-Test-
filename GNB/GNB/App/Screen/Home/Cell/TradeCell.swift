@@ -19,14 +19,15 @@ class TradeCell: UITableViewCell {
     var trade: TradeElement? {
         didSet {
             title.text(trade?.sku, withSkin: LabelSkin.title)
-            body.text(trade?.amount, withSkin: LabelSkin.body)
+            if let trade = trade {
+                body.text(Amount(from: trade).formatedValue, withSkin: LabelSkin.body)
+            }
         }
     }
     
     override func prepareForReuse() {
         trade = nil
         super.prepareForReuse()
-        
     }
     
 }

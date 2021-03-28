@@ -21,11 +21,22 @@ class TradeDetailsViewModel: ViewModel, ViewModelType {
     fileprivate var tradesRates: [TradeRate] = [] {
         didSet {
             self.tradesRates.completeTradesRates()
+            
+            let sameTrades = trades.filter({ $0.sku == tradeSelected.sku })
+            var superSameTrades: TradeElement = TradeElement(sku: tradeSelected.sku, amount: "0", currency: tradeSelected.currency)
+            
+            sameTrades.forEach { (tradeElemnt) in
+                if let amount = Double(tradeElemnt.amount),
+                   let superAmount = Double(superSameTrades.amount){
+                    superSameTrades = TradeElement(sku: tradeSelected.sku, amount: String(amount + superAmount), currency: tradeSelected.currency)
+                }
+            }
+            allSameTrades.accept(superSameTrades)
         }
     }
     
     
-    fileprivate var sameTrades: [TradeElement] = []
+    fileprivate lazy var allSameTrades: BehaviorRelay<TradeElement> =  BehaviorRelay.init(value: tradeSelected)
     
     struct Input {
         let trigger: Observable<Void>
@@ -35,6 +46,7 @@ class TradeDetailsViewModel: ViewModel, ViewModelType {
         let sku: Observable<String>
         let amount: Observable<String>
         let totalTradeEuro: Observable<String>
+        let tradesInAllCurrencies: Observable<[String]>
     }
     
     // MARK: init & deinit
@@ -45,7 +57,6 @@ class TradeDetailsViewModel: ViewModel, ViewModelType {
         self.trades = trades
         self.tradeSelected = tradeSelected
         super.init(router: router)
-        getSameTrades()
     }
     
     // MARK: Binding
@@ -62,14 +73,25 @@ class TradeDetailsViewModel: ViewModel, ViewModelType {
             
         }.disposed(by: disposeBag)
         
+        let totalTradeEuro = allSameTrades.asObservable().map {[weak self] (trade) -> String in
+            if let weakSelf = self {
+                let eurTotal = weakSelf.tradesRates.tradeCurrency("EUR", of: weakSelf.allSameTrades.value)
+                return eurTotal.formatedValue ?? ""
+            }
+            return ""
+        }
+        
         return Output(sku: Observable.just(tradeSelected.sku),
                       amount: Observable.just(tradeSelected.amount),
-                      totalTradeEuro: Observable.just("TODO"))
+                      totalTradeEuro: totalTradeEuro,
+                      tradesInAllCurrencies: Observable.just(tradesInAllCurrencies()))
     }
     
     // MARK: Logic
-    private func getSameTrades() {
-        sameTrades = trades.filter({ $0.sku == tradeSelected.sku })
+    
+    private func tradesInAllCurrencies() -> [String] {
+//        return tradesRates.allCurrencies(of: tradeSelected)?.map({$0.formatedValue}).filter({$0 != nil}) as! [String]
+        return []
     }
 }
 
