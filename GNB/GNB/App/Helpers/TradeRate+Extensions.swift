@@ -10,13 +10,18 @@ import Foundation
 
 extension Array where Element == TradeRate {
     mutating func completeTradesRates() {
-        
-        for (index, currency) in allCurrencies.enumerated() {
-            
-            if (index+1) < allCurrencies.count && (!exist(from: currency, to: allCurrencies[index+1]) || !exist(from: allCurrencies[index+1], to: currency)) {
-                generateTradeRates(between: currency, and: allCurrencies[index+1]).forEach { (tradeRate) in
-                    if !contains(where: {$0 == tradeRate}) {
-                        self.append(tradeRate)
+        allCurrencies.forEach { (currency1) in
+            allCurrencies.filter({ $0 != currency1 }).forEach { (currency2) in
+                if !exist(from: currency1, to: currency2) || !exist(from: currency2, to: currency1) {
+                    print("Falta \(currency1) y \(currency2)")
+                    generateTradeRates(between: currency1, and: currency2).forEach { (tradeRate) in
+                        print("Generado \(tradeRate.from) -> \(tradeRate.to) = \(tradeRate.rate)")
+                        if !contains(where: {$0 == tradeRate}) {
+                            print("Añadido \(tradeRate.from) -> \(tradeRate.to) = \(tradeRate.rate)")
+                            self.append(tradeRate)
+                        } else {
+                            print("Trade ya incluido")
+                        }
                     }
                 }
             }
@@ -122,7 +127,6 @@ extension Array where Element == TradeRate {
 extension TradeRate: Equatable {
     static func == (lhs: TradeRate, rhs: TradeRate) -> Bool {
         return lhs.from == rhs.from &&
-            lhs.to == rhs.to &&
-            lhs.rate == rhs.rate
+            lhs.to == rhs.to
     }
 }

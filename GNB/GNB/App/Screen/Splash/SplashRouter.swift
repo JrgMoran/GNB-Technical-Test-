@@ -14,8 +14,8 @@ class SplashRouter: Router {
         super.init()
     }
     
-    func navigateToLogin() {
-        LoginRouter()
+    func navigateToHome() {
+        HomeRouter()
     }
 }
 

@@ -12,6 +12,11 @@ import RxCocoa
 class SplashViewController: ViewController {
     
     // MARK: IBOutlet
+    @IBOutlet weak var imageView: UIImageView!{
+        didSet {
+            imageView.image = R.images.gNB_logo
+        }
+    }
     
     // MARK: Injections
     var viewModel: SplashViewModel!

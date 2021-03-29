@@ -51,7 +51,7 @@ extension Network {
     
     func decoderArray<T: Decodable>(from json: Data) -> Single<[T]>{
         return Single.create { single in
-            single(decoderObjectOfSingleEvent(from: Result.success(json)))
+            single(decoderObjectsOfSingleEvent(from: Result.success(json)))
             return Disposables.create()
         }
     }

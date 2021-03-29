@@ -29,7 +29,7 @@ class SplashViewModel: ViewModel, ViewModelType {
     // MARK: Binding
     func transform(input: Input) -> Output {
         input.trigger.delay(.seconds(2), scheduler: MainScheduler.instance).subscribe { [weak self] (_) in
-            self?.router.navigateToLogin()
+            self?.router.navigateToHome()
         }.disposed(by: disposeBag)
         return Output()
     }
