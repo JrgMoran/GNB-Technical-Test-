@@ -14,7 +14,7 @@ class LoginRouter: Router {
     override init() {
         super.init()
         let vc = LoginViewController()
-        vc.viewModel = LoginViewModel(loginUseCase: injector.loginUseCase, router: self)
+        vc.viewModel = injector.container.resolve(LoginViewModel.self)
         navigate(to: vc, mode: .new)
     }
     

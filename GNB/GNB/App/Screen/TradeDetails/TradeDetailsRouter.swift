@@ -13,10 +13,7 @@ class TradeDetailsRouter: Router {
     init(trades: [TradeElement], tradeSelected: TradeElement) {
         super.init()
         let viewController = TradeDetailsViewController()
-        viewController.viewModel = TradeDetailsViewModel(router: self,
-                                                         getTradeRates: injector.getTradesRatesUseCase,
-                                                         trades: trades,
-                                                         tradeSelected: tradeSelected)
+        viewController.viewModel = injector.container.resolve(TradeDetailsViewModel.self, arguments: self,trades,tradeSelected)
         
         navigate(to: viewController, mode: .push)
     }

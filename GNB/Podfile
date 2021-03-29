@@ -9,6 +9,7 @@ target 'GNB' do
   pod 'RxGesture', '~> 3.0.2'
   pod 'SkyFloatingLabelTextField', '~> 3.0'
   pod 'ProgressHUD', '~> 13.4'
+  pod 'Swinject'
 
   # Pods for GNB
 

@@ -10,6 +10,7 @@ PODS:
     - RxSwift (~> 5)
   - RxSwift (5.1.2)
   - SkyFloatingLabelTextField (3.8.0)
+  - Swinject (2.7.1)
 
 DEPENDENCIES:
   - ProgressHUD (~> 13.4)
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - RxGesture (~> 3.0.2)
   - RxSwift (~> 5)
   - SkyFloatingLabelTextField (~> 3.0)
+  - Swinject
 
 SPEC REPOS:
   trunk:
@@ -26,6 +28,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SkyFloatingLabelTextField
+    - Swinject
 
 SPEC CHECKSUMS:
   ProgressHUD: 137a7fc677487c5581668f4490563124fb35c232
@@ -34,7 +37,8 @@ SPEC CHECKSUMS:
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
   SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
 
-PODFILE CHECKSUM: d7e3a165f86e7a5b70c967064846931de9f99751
+PODFILE CHECKSUM: 1c0355edefeaf4edbc30acb44302750c3b75b84f
 
 COCOAPODS: 1.10.1
